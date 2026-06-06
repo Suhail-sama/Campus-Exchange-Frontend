@@ -1,0 +1,104 @@
+<div class="bg-[#090a0f] min-h-screen w-full flex items-center justify-center p-4 font-sans text-white py-12">
+
+  <div class="bg-[#161821] w-full max-w-lg p-8 rounded-2xl shadow-2xl border border-gray-800/50">
+
+    <!-- Logo & Header -->
+    <div class="flex flex-col items-center mb-8">
+      <div class="flex items-center gap-2 mb-4">
+        <svg class="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M6 5L18 19" stroke="#3B82F6" stroke-width="4" stroke-linecap="round"/>
+          <path d="M18 5L6 19" stroke="#A855F7" stroke-width="4" stroke-linecap="round"/>
+        </svg>
+        <span class="text-xl font-bold tracking-wide">CampusXchange</span>
+      </div>
+      <h2 class="text-2xl font-bold">Create an account</h2>
+      <p class="text-sm text-gray-400 mt-1">Join the #1 student marketplace today</p>
+    </div>
+
+    <!-- Form -->
+    <form (ngSubmit)="onSubmit()" #signupForm="ngForm" class="flex flex-col gap-4">
+
+      <!-- Full Name -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1.5">Full Name</label>
+        <input
+          type="text"
+          name="fullName"
+          [(ngModel)]="user.fullName"
+          required
+          placeholder="John Doe"
+          class="w-full bg-[#090a0f] border border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-[#818cf8] focus:ring-1 focus:ring-[#818cf8] transition-all"
+        />
+      </div>
+
+      <!-- Email Input -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1.5">University Email</label>
+        <input
+          type="email"
+          name="email"
+          [(ngModel)]="user.email"
+          required
+          placeholder="student@university.edu"
+          class="w-full bg-[#090a0f] border border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-[#818cf8] focus:ring-1 focus:ring-[#818cf8] transition-all"
+        />
+      </div>
+
+      <!-- Password Input -->
+      <div>
+        <label class="block text-sm font-medium text-gray-300 mb-1.5">Password</label>
+        <input
+          type="password"
+          name="password"
+          [(ngModel)]="user.password"
+          required
+          placeholder="Create a strong password"
+          class="w-full bg-[#090a0f] border border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-[#818cf8] focus:ring-1 focus:ring-[#818cf8] transition-all"
+        />
+      </div>
+
+      <!-- Split Row for DOB and PAN -->
+      <div class="flex flex-col sm:flex-row gap-4">
+        <!-- Date of Birth -->
+        <div class="flex-1">
+          <label class="block text-sm font-medium text-gray-300 mb-1.5">Date of Birth</label>
+          <input
+            type="date"
+            name="dob"
+            [(ngModel)]="user.dob"
+            required
+            class="w-full bg-[#090a0f] border border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-200 focus:outline-none focus:border-[#818cf8] focus:ring-1 focus:ring-[#818cf8] transition-all [color-scheme:dark]"
+          />
+        </div>
+
+        <!-- PAN Number -->
+        <div class="flex-1">
+          <label class="block text-sm font-medium text-gray-300 mb-1.5">PAN Number</label>
+          <input
+            type="text"
+            name="panNumber"
+            [(ngModel)]="user.panNumber"
+            required
+            placeholder="ABCDE1234F"
+            class="w-full bg-[#090a0f] border border-gray-700 rounded-lg px-4 py-2 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:border-[#818cf8] focus:ring-1 focus:ring-[#818cf8] transition-all uppercase"
+          />
+        </div>
+      </div>
+
+      <!-- Submit Button -->
+      <button
+        type="submit"
+        [disabled]="!signupForm.form.valid"
+        class="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white font-semibold py-2.5 rounded-lg mt-4 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+        Create Account
+      </button>
+
+    </form>
+
+    <!-- Footer -->
+    <p class="text-center text-sm text-gray-400 mt-6">
+      Already have an account? <a href="/login" class="text-[#818cf8] hover:text-purple-400 font-medium">Log in</a>
+    </p>
+
+  </div>
+</div>
